@@ -1,5 +1,6 @@
 import { MainNav } from "@/components/molecules/MainNav"
 import { PracticeNoticeBanner } from "@/components/atoms"
+import { PublicRouteTransitions } from "@/components/layout/PublicRouteTransitions"
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +10,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         <MainNav />
       </header>
       <main className="flex-1">
-        {children}
+        <PublicRouteTransitions>{children}</PublicRouteTransitions>
       </main>
     </div>
   )

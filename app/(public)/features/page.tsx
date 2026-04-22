@@ -1,18 +1,6 @@
-import Link from "next/link"
-import { FileText, CloudArrowUp, ChartBar, UsersThree, LockKey, ArrowsClockwise } from "@phosphor-icons/react/dist/ssr"
-import type { Icon } from "@phosphor-icons/react"
 import { Badge } from "@/components/ui/badge"
-import { FeatureCard } from "@/components/atoms/FeatureCard"
+import { FeatureTransitionCardLink } from "@/components/features/FeatureTransitionCardLink"
 import { getAllPublishedFeatures } from "@/lib/content/features"
-
-const iconMap: Record<string, Icon> = {
-  FileText,
-  CloudArrowUp,
-  ChartBar,
-  UsersThree,
-  LockKey,
-  ArrowsClockwise,
-}
 
 export const metadata = {
   title: "Features | AF Finance",
@@ -38,15 +26,15 @@ export default function FeaturesPage() {
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2">
         {features.map((feature) => (
-          <Link key={feature.slug} href={feature.permalink}>
-            <FeatureCard
-              icon={iconMap[feature.icon]}
-              title={feature.title}
-              description={feature.summary}
-              eyebrow={`Feature ${String(feature.order).padStart(2, "0")}`}
-              ctaText="Read feature page →"
-            />
-          </Link>
+          <FeatureTransitionCardLink
+            key={feature.slug}
+            slug={feature.slug}
+            permalink={feature.permalink}
+            order={feature.order}
+            title={feature.title}
+            summary={feature.summary}
+            icon={feature.icon}
+          />
         ))}
       </div>
     </section>

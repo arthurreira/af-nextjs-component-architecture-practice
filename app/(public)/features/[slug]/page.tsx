@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
 import { MDXContent } from "@/components/mdx-content"
-import { Badge } from "@/components/ui/badge"
+import { FeatureDetailHeroTransition } from "@/components/features/FeatureDetailHeroTransition"
 import { getFeatureBySlug, getFeatureSlugs } from "@/lib/content/features"
 
 type FeatureDetailPageProps = {
@@ -43,13 +43,11 @@ export default async function FeatureDetailPage({ params }: FeatureDetailPagePro
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
-      <Badge variant="outline" className="rounded-full px-4 py-1 text-xs tracking-widest uppercase">
-        Feature deep dive
-      </Badge>
-      <h1 className="mt-6 text-balance font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
-        {feature.title}
-      </h1>
-      <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{feature.summary}</p>
+      <FeatureDetailHeroTransition
+        slug={feature.slug}
+        title={feature.title}
+        summary={feature.summary}
+      />
 
       <div className="mdx-content mt-10">
         <MDXContent code={feature.code} />

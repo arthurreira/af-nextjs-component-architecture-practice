@@ -17,7 +17,7 @@ export const mainNav: NavItem[] = [
   {
     type: "link",
     title: "Features",
-    href: "/#features",
+    href: "/features",
   },
   {
     type: "link",

@@ -1,5 +1,4 @@
-'use client'
-
+import Link from "next/link"
 
 import { Badge } from "@/components/ui/badge"
 import {
@@ -8,7 +7,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr"
 import type { Icon } from "@phosphor-icons/react"
 import { FeatureCard } from "@/components/atoms/FeatureCard"
-import featuresData from "@/data/features.json"
+import { getAllPublishedFeatures } from "@/lib/content/features"
 import { TextEffect } from "@/components/TextEffect"
 import { InteractiveBeamSurface } from "@/components/ui/beam-surface"
 
@@ -19,6 +18,8 @@ const iconMap: Record<string, Icon> = {
 }
 
 export function FeaturesSection() {
+  const features = getAllPublishedFeatures()
+
   return (
     <section id="features" className="mx-auto max-w-6xl px-6 py-12">
 
@@ -52,7 +53,7 @@ export function FeaturesSection() {
       <div
         className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {featuresData.map((feature) => (
+        {features.map((feature) => (
           <div key={feature.title}>
             <InteractiveBeamSurface
               className="rounded-xl"
@@ -62,11 +63,13 @@ export function FeaturesSection() {
                 borderWidth: 2,
               }}
             >
-              <FeatureCard
-                icon={iconMap[feature.icon]}
-                title={feature.title}
-                description={feature.description}
-              />
+              <Link href={feature.permalink} aria-label={`Learn more about ${feature.title}`}>
+                <FeatureCard
+                  icon={iconMap[feature.icon]}
+                  title={feature.title}
+                  description={feature.summary}
+                />
+              </Link>
             </InteractiveBeamSurface>
           </div>
         ))}

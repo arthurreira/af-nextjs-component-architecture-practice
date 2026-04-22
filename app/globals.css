@@ -175,3 +175,87 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .mdx-content {
+    @apply text-base leading-relaxed text-foreground;
+  }
+
+  .mdx-content > * + * {
+    @apply mt-6;
+  }
+
+  .mdx-content h2 {
+    @apply mt-10 text-3xl font-semibold tracking-tight;
+  }
+
+  .mdx-content h3 {
+    @apply mt-8 text-xl font-semibold tracking-tight;
+  }
+
+  .mdx-content p {
+    @apply text-base leading-7 text-muted-foreground;
+  }
+
+  .mdx-content strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .mdx-content a {
+    @apply font-medium text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-foreground;
+  }
+
+  .mdx-content ul,
+  .mdx-content ol {
+    @apply space-y-2 pl-6;
+  }
+
+  .mdx-content ul {
+    @apply list-disc;
+  }
+
+  .mdx-content ol {
+    @apply list-decimal;
+  }
+
+  .mdx-content li {
+    @apply text-muted-foreground;
+  }
+
+  .mdx-content li::marker {
+    @apply text-primary;
+  }
+
+  .mdx-content blockquote {
+    @apply border-l-4 border-primary/40 bg-muted/40 px-4 py-3 text-sm italic text-muted-foreground;
+  }
+
+  .mdx-content hr {
+    @apply my-10 border-border;
+  }
+
+  .mdx-content pre {
+    @apply overflow-x-auto rounded-xl border border-border bg-card p-4 text-sm;
+  }
+
+  .mdx-content :not(pre) > code {
+    @apply rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-sm text-foreground;
+  }
+
+  .mdx-content table {
+    @apply w-full border-collapse overflow-hidden rounded-lg border border-border;
+  }
+
+  .mdx-content th,
+  .mdx-content td {
+    @apply border border-border px-3 py-2 text-left;
+  }
+
+  .mdx-content th {
+    @apply bg-muted/70 text-sm font-semibold text-foreground;
+  }
+
+  .mdx-content td {
+    @apply text-sm text-muted-foreground;
+  }
+}

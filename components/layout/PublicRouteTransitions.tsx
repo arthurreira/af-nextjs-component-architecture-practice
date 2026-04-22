@@ -1,6 +1,7 @@
 "use client"
 
 import type { ReactNode } from "react"
+import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react"
 
@@ -12,6 +13,10 @@ export function PublicRouteTransitions({ children }: PublicRouteTransitionsProps
   const pathname = usePathname() ?? ""
   const shouldReduceMotion = useReducedMotion()
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+  }, [pathname])
+
   const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }
   const animate = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
   const exit = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }
@@ -21,7 +26,7 @@ export function PublicRouteTransitions({ children }: PublicRouteTransitionsProps
 
   return (
     <LayoutGroup id="public-route-transitions">
-      <AnimatePresence initial={false} mode="sync">
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={pathname}
           initial={initial}

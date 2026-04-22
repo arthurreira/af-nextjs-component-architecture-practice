@@ -1,0 +1,21 @@
+[
+  { "id": "1", "name": "Alice Mäkinen", "email": "alice@example.com", "password": "alice123",
+    "role": "admin", "plan": "enterprise", "status": "active",
+    "invoicesThisMonth": 48, "clients": 22, "revenue": 18400 },
+
+  { "id": "2", "name": "Bob Virtanen", "email": "bob@example.com", "password": "bob123",
+    "role": "user", "plan": "free", "status": "active",
+    "invoicesThisMonth": 3, "clients": 2, "revenue": 1200 },
+
+  { "id": "3", "name": "Carol Laine", "email": "carol@example.com", "password": "carol123",
+    "role": "user", "plan": "pro", "status": "active",
+    "invoicesThisMonth": 12, "clients": 8, "revenue": 6800 },
+
+  { "id": "4", "name": "David Korhonen", "email": "david@example.com", "password": "david123",
+    "role": "editor", "plan": "team", "status": "active",
+    "invoicesThisMonth": 27, "clients": 14, "revenue": 11200 },
+
+  { "id": "5", "name": "Eva Heikkinen", "email": "eva@example.com", "password": "eva123",
+    "role": "user", "plan": "free", "status": "inactive",
+    "invoicesThisMonth": 0, "clients": 0, "revenue": 0 }
+]

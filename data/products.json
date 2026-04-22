@@ -1,0 +1,13 @@
+[
+  { "id": "p1", "name": "Starter", "price": 0, "badge": "Free", "icon": "Package",
+    "features": ["5 invoices/month", "3 clients", "Basic invoicing", "PDF export"] },
+
+  { "id": "p2", "name": "Pro", "price": 29, "badge": "Popular", "isRecommended": true, "icon": "Diamond",
+    "features": ["Unlimited invoices", "Unlimited clients", "Recurring invoices", "Tax reports", "API access"] },
+
+  { "id": "p3", "name": "Team", "price": 79, "badge": null, "icon": "UsersThree",
+    "features": ["Everything in Pro", "5 team members", "Roles & permissions", "Approval workflows", "Priority support"] },
+
+  { "id": "p4", "name": "Enterprise", "price": null, "badge": "Custom", "icon": "Rocket",
+    "features": ["Unlimited users", "White-label", "Custom integrations", "SLA guarantee", "Dedicated support"] }
+]

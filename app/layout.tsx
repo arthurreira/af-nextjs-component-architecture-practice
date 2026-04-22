@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, DM_Sans, Montserrat } from "next/font/google"
 
 import "../app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeToggle } from "@/components/atoms"
 import { cn } from "@/lib/utils";
 
 const montserratHeading = Montserrat({subsets:['latin'],variable:'--font-heading'});
@@ -25,8 +26,10 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", dmSans.variable, montserratHeading.variable)}
     >
       <body>
-        
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <ThemeToggle className="fixed right-4 bottom-4 z-50 shadow-lg" />
+        </ThemeProvider>
       </body>
     </html>
   )

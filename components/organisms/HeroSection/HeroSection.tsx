@@ -60,7 +60,7 @@ export function HeroSection() {
                         </Link>
                     </Button>
                     <Button size="lg" variant="outline" className="px-8 font-semibold tracking-wide" asChild>
-                        <Link href="/products">See pricing</Link>
+                        <Link href="/pricing">See pricing</Link>
                     </Button>
                 </div>
 

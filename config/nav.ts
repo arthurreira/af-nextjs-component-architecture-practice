@@ -22,7 +22,7 @@ export const mainNav: NavItem[] = [
   {
     type: "link",
     title: "Pricing",
-    href: "/products",
+    href: "/pricing",
   },
   {
     type: "link",

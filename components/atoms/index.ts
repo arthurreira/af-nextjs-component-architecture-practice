@@ -9,3 +9,4 @@ export * from "./FormHeading";
 export * from "./FeatureCard";
 export * from "./NavLogo";
 export * from "./NavLoginButton";
+export * from "./ThemeToggle";

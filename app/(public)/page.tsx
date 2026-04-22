@@ -13,8 +13,7 @@ const logos = [
   { "id": "/images/svg/ibm.svg", "width": 120, "height": 40 },
   { "id": "/images/svg/apple.svg", "width": 120, "height": 40 },
   { "id": "/images/svg/hashicorp.svg", "width": 120, "height": 40 },
-  { "id": "/images/svg/NordCloud.svg", "width": 120, "height": 40 },
-
+  
 ]
 
 export default function HomePage() {

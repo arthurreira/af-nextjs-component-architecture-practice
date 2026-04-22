@@ -1,32 +1,13 @@
 import Link from "next/link"
+import { Sparkle, CloudCheck, ShieldCheck } from "@phosphor-icons/react/dist/ssr"
 
-import {
-	FileText,
-	CloudArrowUp,
-	ChartBar,
-	UsersThree,
-	LockKey,
-	ArrowsClockwise,
-} from "@phosphor-icons/react/dist/ssr"
-import type { Icon } from "@phosphor-icons/react"
 import { FeatureCard } from "@/components/atoms/FeatureCard"
 import { Badge } from "@/components/ui/badge"
-import { DefaultCard, InteractiveBeamSurface } from "@/components/ui/beam-surface"
+import { InteractiveBeamSurface } from "@/components/ui/beam-surface"
 import { Button } from "@/components/ui/button"
-import featuresData from "@/data/features.json"
 import productsData from "@/data/products.json"
 
-const iconMap: Record<string, Icon> = {
-	FileText,
-	CloudArrowUp,
-	ChartBar,
-	UsersThree,
-	LockKey,
-	ArrowsClockwise,
-}
-
 export default function AboutPage() {
-	const highlightedFeatures = featuresData.slice(0, 4)
 	const planNames = productsData.map((plan) => plan.name).join(" • ")
 
 	return (
@@ -47,31 +28,31 @@ export default function AboutPage() {
 
 			<div className="mt-14 grid gap-6 md:grid-cols-3">
 				<InteractiveBeamSurface className="rounded-2xl" beamProps={{ size: 180, duration: 8, borderWidth: 2 }}>
-					<DefaultCard className="rounded-2xl border border-border bg-card p-6">
-						<p className="text-xs uppercase tracking-widest text-muted-foreground">Positioning</p>
-						<h2 className="mt-2 text-xl font-semibold">Finance, simplified.</h2>
-						<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-							We keep the product focused on practical workflows that remove complexity instead of adding it.
-						</p>
-					</DefaultCard>
+					<FeatureCard
+						icon={Sparkle}
+						eyebrow="Positioning"
+						title="Finance, simplified."
+						description="We keep the product focused on practical workflows that remove complexity instead of adding it."
+						className="rounded-2xl bg-card"
+					/>
 				</InteractiveBeamSurface>
 				<InteractiveBeamSurface className="rounded-2xl" beamProps={{ size: 180, duration: 8, borderWidth: 2 }}>
-					<DefaultCard className="rounded-2xl border border-border bg-card p-6">
-						<p className="text-xs uppercase tracking-widest text-muted-foreground">Operating Model</p>
-						<h2 className="mt-2 text-xl font-semibold">Cloud-first by design</h2>
-						<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-							Always-available systems, secure infrastructure, and live sync mean your numbers are where you are.
-						</p>
-					</DefaultCard>
+					<FeatureCard
+						icon={CloudCheck}
+						eyebrow="Operating Model"
+						title="Cloud-first by design"
+						description="Always-available systems, secure infrastructure, and live sync mean your numbers are where you are."
+						className="rounded-2xl bg-card"
+					/>
 				</InteractiveBeamSurface>
 				<InteractiveBeamSurface className="rounded-2xl" beamProps={{ size: 180, duration: 8, borderWidth: 2 }}>
-					<DefaultCard className="rounded-2xl border border-border bg-card p-6">
-						<p className="text-xs uppercase tracking-widest text-muted-foreground">Trust</p>
-						<h2 className="mt-2 text-xl font-semibold">Security as default</h2>
-						<p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-							Encryption, compliance, and role-based collaboration are built in so teams can scale with confidence.
-						</p>
-					</DefaultCard>
+					<FeatureCard
+						icon={ShieldCheck}
+						eyebrow="Trust"
+						title="Security as default"
+						description="Encryption, compliance, and role-based collaboration are built in so teams can scale with confidence."
+						className="rounded-2xl bg-card"
+					/>
 				</InteractiveBeamSurface>
 			</div>
 

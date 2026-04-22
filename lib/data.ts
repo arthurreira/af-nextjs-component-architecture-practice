@@ -18,11 +18,13 @@ export async function getUserById(id: string) {
   return users.find((u) => u.id === id) ?? null
 }
 
-export async function getProducts(filters?: { category?: string; status?: string }) {
+export async function getProducts(filters?: { badge?: string; isRecommended?: boolean }) {
   await delay()
   let result = [...products]
-  if (filters?.category) result = result.filter((p) => p.category === filters.category)
-  if (filters?.status) result = result.filter((p) => p.status === filters.status)
+  if (filters?.badge) result = result.filter((p) => p.badge === filters.badge)
+  if (typeof filters?.isRecommended === "boolean") {
+    result = result.filter((p) => Boolean(p.isRecommended) === filters.isRecommended)
+  }
   return result
 }
 

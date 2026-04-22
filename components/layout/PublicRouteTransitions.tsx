@@ -9,7 +9,7 @@ type PublicRouteTransitionsProps = {
 }
 
 export function PublicRouteTransitions({ children }: PublicRouteTransitionsProps) {
-  const pathname = usePathname()
+  const pathname = usePathname() ?? ""
   const shouldReduceMotion = useReducedMotion()
 
   const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }
@@ -21,7 +21,7 @@ export function PublicRouteTransitions({ children }: PublicRouteTransitionsProps
 
   return (
     <LayoutGroup id="public-route-transitions">
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence initial={false} mode="sync">
         <motion.div
           key={pathname}
           initial={initial}

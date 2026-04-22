@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
+import { Moon, Sun } from "@phosphor-icons/react"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -36,7 +37,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         className
       )}
     >
-      <span aria-hidden>{isDark ? "☀" : "☾"}</span>
+      {isDark ? <Sun className="size-4" aria-hidden /> : <Moon className="size-4" aria-hidden />}
     </Button>
   )
 }

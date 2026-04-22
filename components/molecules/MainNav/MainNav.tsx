@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { ArrowUpRight, List, X } from "@phosphor-icons/react"
 import {
   NavigationMenu, NavigationMenuContent, NavigationMenuItem,
   NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger,
@@ -88,7 +89,7 @@ export function MainNav({ items = mainNav }: MainNavProps) {
             onClick={() => setIsMobileMenuOpen((open) => !open)}
             className="rounded-full"
           >
-            <span aria-hidden>{isMobileMenuOpen ? "✕" : "☰"}</span>
+            {isMobileMenuOpen ? <X className="size-4" aria-hidden /> : <List className="size-4" aria-hidden />}
           </Button>
         </div>
       </div>
@@ -97,8 +98,8 @@ export function MainNav({ items = mainNav }: MainNavProps) {
         <div
           id="mobile-main-nav"
           className={cn(
-            "animate-in fade-in zoom-in-95 mt-3 space-y-2 rounded-xl border border-border/70",
-            "bg-card/95 p-2 shadow-lg backdrop-blur-sm md:hidden"
+            "animate-in fade-in zoom-in-95 mt-3 space-y-2  ",
+            "backdrop-blur-sm md:hidden"
           )}
         >
           <p className="px-3 pt-2 pb-1 text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase">
@@ -123,7 +124,7 @@ export function MainNav({ items = mainNav }: MainNavProps) {
                   >
                     <span className="flex items-center justify-between gap-4">
                       <span>{link.title}</span>
-                      <span aria-hidden className="text-muted-foreground">↗</span>
+                      <ArrowUpRight aria-hidden className="size-4 text-muted-foreground" />
                     </span>
                     {link.description && (
                       <span className="mt-1 block text-xs text-muted-foreground">
@@ -145,7 +146,7 @@ export function MainNav({ items = mainNav }: MainNavProps) {
               >
                 <span className="flex items-center justify-between gap-4">
                   <span>{item.title}</span>
-                  <span aria-hidden className="text-muted-foreground">↗</span>
+                  <ArrowUpRight aria-hidden className="size-4 text-muted-foreground" />
                 </span>
               </Link>
             )

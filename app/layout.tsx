@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, DM_Sans, Montserrat } from "next/font/google"
 import "../app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/atoms"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Analytics } from "@vercel/analytics/next";
 
 const montserratHeading = Montserrat({subsets:['latin'],variable:'--font-heading'});
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           {children}
           <ThemeToggle className="fixed right-4 bottom-4 z-50 shadow-lg" />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )

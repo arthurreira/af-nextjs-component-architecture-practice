@@ -42,7 +42,7 @@ export function FeatureTransitionCardLink({
   icon,
 }: FeatureTransitionCardLinkProps) {
   return (
-    <Link href={permalink}>
+    <Link href={permalink} prefetch={false}>
       <motion.div layoutId={getFeatureCardTransitionId(slug)}>
         <FeatureCard
           icon={iconMap[icon]}

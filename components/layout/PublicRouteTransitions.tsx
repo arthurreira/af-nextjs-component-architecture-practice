@@ -14,7 +14,7 @@ export function PublicRouteTransitions({ children }: PublicRouteTransitionsProps
   const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+    window.scrollTo({ top: 0, behavior: "instant" })
   }, [pathname])
 
   const initial = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }
@@ -26,7 +26,7 @@ export function PublicRouteTransitions({ children }: PublicRouteTransitionsProps
 
   return (
     <LayoutGroup id="public-route-transitions">
-      <AnimatePresence initial={false} mode="wait">
+      <AnimatePresence initial={false}>
         <motion.div
           key={pathname}
           initial={initial}

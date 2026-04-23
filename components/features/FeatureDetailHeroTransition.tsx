@@ -19,6 +19,9 @@ export function FeatureDetailHeroTransition({
   return (
     <motion.div
       layoutId={getFeatureCardTransitionId(slug)}
+      layout
+      layoutDependency={slug}
+      transition={{ layout: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } }}
       className="rounded-2xl border border-border bg-card p-6 shadow-sm"
     >
       <Badge variant="outline" className="rounded-full px-4 py-1 text-xs tracking-widest uppercase">

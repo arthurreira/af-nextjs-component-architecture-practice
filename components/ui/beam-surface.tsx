@@ -21,8 +21,10 @@ type InteractiveSurfaceProps = SurfaceProps & {
 export function PremiumBeamSurface({ children, className, beamProps }: SurfaceProps) {
   return (
     <div className={cn("relative overflow-hidden rounded-[inherit]", className)}>
-      <BorderBeam {...beamProps} />
       <div className="relative z-10">{children}</div>
+      <div className="pointer-events-none absolute inset-0 z-20">
+        <BorderBeam {...beamProps} />
+      </div>
     </div>
   )
 }
@@ -49,8 +51,12 @@ export function InteractiveBeamSurface({
       onFocusCapture={() => setIsActive(true)}
       onBlurCapture={handleBlurCapture}
     >
-      {isActive ? <BorderBeam {...beamProps} /> : null}
       <div className="relative z-10">{children}</div>
+      {isActive && (
+        <div className="pointer-events-none absolute inset-0 z-20">
+          <BorderBeam {...beamProps} />
+        </div>
+      )}
     </div>
   )
 }

@@ -9,8 +9,6 @@ import type { Icon } from "@phosphor-icons/react"
 import { FeatureCard } from "@/components/atoms/FeatureCard"
 import { getAllPublishedFeatures } from "@/lib/content/features"
 import { TextEffect } from "@/components/TextEffect"
-import { InteractiveBeamSurface } from "@/components/ui/beam-surface"
-
 
 const iconMap: Record<string, Icon> = {
   FileText, CloudArrowUp, ChartBar,
@@ -54,24 +52,13 @@ export function FeaturesSection() {
         className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
       >
         {features.map((feature) => (
-          <div key={feature.title}>
-            <InteractiveBeamSurface
-              className="rounded-xl"
-              beamProps={{
-                duration: 8,
-                size: 220,
-                borderWidth: 2,
-              }}
-            >
-              <Link href={feature.permalink} aria-label={`Learn more about ${feature.title}`}>
-                <FeatureCard
-                  icon={iconMap[feature.icon]}
-                  title={feature.title}
-                  description={feature.summary}
-                />
-              </Link>
-            </InteractiveBeamSurface>
-          </div>
+          <Link key={feature.title} href={feature.permalink} aria-label={`Learn more about ${feature.title}`}>
+            <FeatureCard
+              icon={iconMap[feature.icon]}
+              title={feature.title}
+              description={feature.summary}
+            />
+          </Link>
         ))}
       </div>
     </section>
